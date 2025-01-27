@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ElectroCap - Green Wave for Emergency Vehicles</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <style>
     :root {
-      --primary-color: #D32F2F;  /* Vermelho principal */
+      --primary-color: #D32F2F;   /* Vermelho principal */
       --secondary-color: #FFD600; /* Amarelo */
-      --accent-color: #2E7D32;   /* Verde */
+      --accent-color: #2E7D32;    /* Verde */
     }
-
-    /* Navbar com cor sólida em vez de gradiente */
+    /* Navbar: cor sólida */
     .navbar {
       background-color: var(--primary-color) !important;
     }
-
-    /* Hero Section mantém a imagem de fundo sem gradiente sobreposto */
+    /* Hero Section com texto em verde */
     .hero-section {
       background: url('traffic-bg.jpg') center center no-repeat;
       background-size: cover;
-      color: white;
+      color: var(--accent-color); /* texto verde */
       padding: 150px 0;
       position: relative;
     }
-    /* Para melhor legibilidade do texto na imagem, adicionamos um overlay escuro translúcido */
     .hero-section::before {
       content: "";
       position: absolute;
@@ -36,7 +33,9 @@
       position: relative;
       z-index: 2;
     }
-
+    .hero-section h1, .hero-section p {
+      color: var(--accent-color) !important; /* Força o texto em verde */
+    }
     /* Cartões de equipa */
     .team-card {
       transition: transform 0.3s;
@@ -44,13 +43,11 @@
     .team-card:hover {
       transform: translateY(-5px);
     }
-
     /* Seção Calendário */
     .schedule-item .card {
       border-left: 5px solid var(--accent-color);
     }
-
-    /* Seção Blog */
+    /* Seção Blog (Index) */
     .blog-post .card {
       border: 1px solid #dedede;
       transition: transform 0.3s;
@@ -58,10 +55,12 @@
     .blog-post .card:hover {
       transform: scale(1.02);
     }
-
     /* Rodapé */
     footer {
       background-color: #333;
+      color: #fff;
+    }
+    footer a {
       color: #fff;
     }
   </style>
@@ -77,6 +76,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#competitors">Concorrentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#requirements">Requisitos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#challenges">Desafios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#partners">Parceiros</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">Equipa</a></li>
           <li class="nav-item"><a class="nav-link" href="#schedule">Calendário</a></li>
           <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
@@ -103,7 +106,12 @@
           <div class="card h-100">
             <div class="card-body">
               <h3 class="text-danger">Problema</h3>
-              <p>Os atrasos no trânsito podem custar vidas em situações de emergência. Nosso sistema visa reduzir o tempo de resposta através da coordenação inteligente de semáforos, permitindo que veículos de emergência usufruam de uma “onda verde” para maior rapidez e segurança.</p>
+              <p>
+                Os atrasos no trânsito podem custar vidas em situações de emergência. O nosso
+                sistema visa reduzir o tempo de resposta através da coordenação inteligente
+                de semáforos, permitindo que veículos de emergência usufruam de uma “onda verde” 
+                para maior rapidez e segurança.
+              </p>
             </div>
           </div>
         </div>
@@ -124,8 +132,82 @@
     </div>
   </section>
 
+  <!-- Concorrentes e Trabalhos Anteriores (Slides 5) -->
+  <section id="competitors" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Concorrentes e Trabalhos Anteriores</h2>
+      <p><strong>Baseados em Lisboa:</strong></p>
+      <ul>
+        <li>Project Gertrude, em utilização desde 1985 até 2021 pela EMEL</li>
+        <li>Project SIM.Lx, em utilização desde 2021 pela EMEL</li>
+      </ul>
+      <p><strong>Fora de Lisboa:</strong></p>
+      <ul>
+        <li>Opticom, da Global Traffic Technologies</li>
+        <li>Tomar Strobecom</li>
+      </ul>
+      <p>
+        Estes sistemas servem como referência inicial, embora nosso projeto foque 
+        especificamente na coordenação inteligente para veículos de emergência
+        e possa diferir na arquitetura e no uso de IA.
+      </p>
+    </div>
+  </section>
+
+  <!-- Requisitos da Solução (Slides 6) -->
+  <section id="requirements" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Requisitos da Solução</h2>
+      <p>
+        O sistema deve ser capaz de prevenir tráfego numa rota específica e reagir ao movimento do
+        veículo de emergência. Quando não houver emergência, deve gerir o tráfego normalmente, mantendo
+        rotas de “escape” livres caso um veículo de emergência precise passar.
+      </p>
+      <p>
+        Também deve auxiliar na escolha de rota, mudando-a se uma mais rápida se tornar disponível.
+        Se nenhuma rota livre estiver disponível, deve prever qual ficará livre primeiro e qual
+        oferece espaço ou segurança adequados para acomodar o veículo de emergência.
+      </p>
+      <p>
+        O sistema deve reagir rapidamente a mudanças, comunicar sempre, nunca se desligar e ter um 
+        backup em caso de falha elétrica. A escalabilidade também é fundamental para futuramente 
+        acomodar outros sistemas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Desafios Técnicos (Slides 7) -->
+  <section id="challenges" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Desafios Técnicos</h2>
+      <p>
+        Os principais desafios técnicos envolvem projetar um algoritmo capaz de detetar quando 
+        uma ambulância se aproxima dentro de um certo raio, ativando as luzes e sinais automaticamente.
+        Integrar esse sistema de forma contínua na ambulância, garantindo que seja fácil e eficaz para
+        todos os profissionais relevantes, também é um desafio.
+      </p>
+      <p>
+        Além disso, cruzamentos e rotundas que não têm semáforos podem ser difíceis de contabilizar, 
+        pois o sistema não teria “visibilidade” sobre esses segmentos de tráfego.
+      </p>
+    </div>
+  </section>
+
+  <!-- Parceiros (Slides 8) -->
+  <section id="partners" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Parceiros</h2>
+      <p>
+        Parceiros potenciais para o projeto incluem organizações como EMEL, INEM e outras entidades 
+        de resposta a emergências. Essas parcerias oferecem conhecimentos valiosos, recursos e 
+        experiência prática, garantindo que o projeto se alinhe com as necessidades reais dos 
+        serviços de emergência, aumentando seu impacto e eficácia.
+      </p>
+    </div>
+  </section>
+
   <!-- Equipa -->
-  <section id="team" class="bg-light py-5">
+  <section id="team" class="py-5">
     <div class="container">
       <h2 class="text-center mb-5">Nossa Equipa</h2>
       <div class="row g-4">
@@ -175,7 +257,6 @@
           </div>
         </div>
       </div>
-
       <div class="row g-4 mt-4">
         <!-- Bloco 4: Martim Sousa -->
         <div class="col-md-4">
@@ -227,7 +308,7 @@
   </section>
 
   <!-- Calendário -->
-  <section id="schedule" class="py-5">
+  <section id="schedule" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-5">Calendário do Projeto</h2>
       <div class="row gy-4">
@@ -235,7 +316,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="text-success">15 Fev 2025 - Revisão do Projeto</h5>
-              <p>Revisão abrangente do conceito e abordagem inicial do projeto</p>
+              <p>Revisão abrangente do conceito e abordagem inicial do projeto.</p>
             </div>
           </div>
         </div>
@@ -243,7 +324,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="text-success">28 Fev 2025 - Desenvolvimento do Website</h5>
-              <p>Início do desenvolvimento do website do projeto</p>
+              <p>Início do desenvolvimento do website do projeto.</p>
             </div>
           </div>
         </div>
@@ -251,7 +332,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="text-success">5 Mar 2025 - Definição de Requisitos</h5>
-              <p>Elaboração detalhada dos requisitos da solução e materiais necessários</p>
+              <p>Elaboração detalhada dos requisitos e materiais necessários.</p>
             </div>
           </div>
         </div>
@@ -259,7 +340,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="text-success">6 Abr 2025 - Apresentação Intermédia</h5>
-              <p>Apresentação do progresso e recolha de feedback</p>
+              <p>Apresentação do progresso e recolha de feedback.</p>
             </div>
           </div>
         </div>
@@ -267,7 +348,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="text-success">20 Abr 2025 - Distribuição de Tarefas</h5>
-              <p>Divisão equitativa de responsabilidades entre os membros</p>
+              <p>Divisão equitativa de responsabilidades entre os membros.</p>
             </div>
           </div>
         </div>
@@ -275,7 +356,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="text-success">18 Mai 2025 - Primeiro Protótipo</h5>
-              <p>Desenvolvimento do primeiro protótipo funcional e testes iniciais</p>
+              <p>Desenvolvimento do primeiro protótipo funcional e testes iniciais.</p>
             </div>
           </div>
         </div>
@@ -283,7 +364,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="text-success">8 Jun 2025 - Finalização do Projeto</h5>
-              <p>Conclusão, otimizações finais e preparação para entrega</p>
+              <p>Conclusão, otimizações finais e preparação para entrega.</p>
             </div>
           </div>
         </div>
@@ -291,49 +372,32 @@
     </div>
   </section>
 
-  <!-- Blog: colocado na página principal com todas as entradas -->
-  <section id="blog" class="py-5 bg-light">
+  <!-- Blog (Apenas 1 Post) -->
+  <section id="blog" class="py-5">
     <div class="container">
       <h2 class="text-center mb-5">Blog do Projeto</h2>
-      <div class="row g-4">
-        <!-- Exemplo de vários posts de blog -->
-        <div class="col-md-4 blog-post">
+      <div class="row g-4 justify-content-center">
+        <!-- Apenas Post #1 (Com link para página específica) -->
+        <div class="col-md-6 blog-post">
           <div class="card h-100">
             <div class="card-body">
               <h5>Post #1: Apresentação do Projeto</h5>
               <p class="text-muted">Data: 12 de Janeiro 2025</p>
-              <p class="mb-0">Nesta primeira entrada de blog, explicamos a motivação, os principais objetivos e o grande desafio que envolve coordenação de semáforos para veículos de emergência...</p>
+              <p class="mb-3">
+                Nesta primeira entrada de blog, explicamos a motivação, os principais objetivos e 
+                o grande desafio que envolve a coordenação de semáforos para veículos de emergência...
+              </p>
+              <!-- Link para a página de detalhe do Post #1 -->
+              <a href="blog-post-1.html" class="btn btn-outline-success">Ler mais</a>
             </div>
           </div>
         </div>
-
-        <div class="col-md-4 blog-post">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5>Post #2: Progresso Inicial</h5>
-              <p class="text-muted">Data: 20 de Janeiro 2025</p>
-              <p class="mb-0">Já começámos a desenvolver as primeiras simulações de tráfego. Nosso foco é garantir que os tempos de sinal sejam otimizados para dar prioridade a ambulâncias...</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 blog-post">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5>Post #3: Implementando Algoritmos de IA</h5>
-              <p class="text-muted">Data: 27 de Janeiro 2025</p>
-              <p class="mb-0">Nesta fase, introduzimos algoritmos de Machine Learning para prever congestionamentos e ajudar a criar rotas mais rápidas para veículos de emergência. Os testes preliminares são promissores...</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Caso queira mais entradas, basta replicar este bloco -->
       </div>
     </div>
   </section>
 
   <!-- Contactos -->
-  <section id="contact" class="py-5">
+  <section id="contact" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-5">Contacte-nos</h2>
       <div class="row justify-content-center">
@@ -343,11 +407,11 @@
               <form action="mailto:henrique.d.sousa.rodrigues@tecnico.ulisboa.pt" method="post" enctype="text/plain">
                 <div class="mb-3">
                   <label for="name" class="form-label">Nome</label>
-                  <input type="text" class="form-control" id="name" required>
+                  <input type="text" class="form-control" id="name" required />
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" required>
+                  <input type="email" class="form-control" id="email" required />
                 </div>
                 <div class="mb-3">
                   <label for="message" class="form-label">Mensagem</label>
@@ -372,7 +436,9 @@
         </div>
         <div class="col-md-4 mb-3">
           <h5>Contacto</h5>
-          <p>henrique.d.sousa.rodrigues@tecnico.ulisboa.pt</p>
+          <p><a href="mailto:henrique.d.sousa.rodrigues@tecnico.ulisboa.pt">
+            henrique.d.sousa.rodrigues@tecnico.ulisboa.pt
+          </a></p>
         </div>
         <div class="col-md-4">
           <h5>Projeto PI366</h5>
