@@ -7,35 +7,35 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <style>
     :root {
-      --primary-color: #D32F2F;   /* Vermelho principal */
+      /* Agora definimos o verde como cor principal (substituindo o vermelho anterior) */
+      --primary-color: #2E7D32;   /* Verde principal */
       --secondary-color: #FFD600; /* Amarelo */
-      --accent-color: #2E7D32;    /* Verde */
+      --accent-color: #2E7D32;    /* Também Verde (pode ser ajustado se necessário) */
     }
-    /* Navbar: cor sólida */
+
+    /* Navbar: agora em verde */
     .navbar {
       background-color: var(--primary-color) !important;
     }
-    /* Hero Section com texto em verde */
+
+    /* Hero Section com fundo verde e texto branco */
     .hero-section {
-      background: url('traffic-bg.jpg') center center no-repeat;
-      background-size: cover;
-      color: var(--accent-color); /* texto verde */
+      background-color: var(--accent-color);
+      color: #fff; /* texto branco */
       padding: 150px 0;
       position: relative;
+      text-align: center;
     }
+    /* Removemos a sobreposição para manter apenas o fundo verde */
     .hero-section::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.4);
+      content: none;
     }
-    .hero-section .container {
-      position: relative;
-      z-index: 2;
+    /* Forçar o texto a branco */
+    .hero-section h1, 
+    .hero-section p {
+      color: #fff !important;
     }
-    .hero-section h1, .hero-section p {
-      color: var(--accent-color) !important; /* Força o texto em verde */
-    }
+
     /* Cartões de equipa */
     .team-card {
       transition: transform 0.3s;
@@ -43,10 +43,12 @@
     .team-card:hover {
       transform: translateY(-5px);
     }
+
     /* Seção Calendário */
     .schedule-item .card {
       border-left: 5px solid var(--accent-color);
     }
+
     /* Seção Blog (Index) */
     .blog-post .card {
       border: 1px solid #dedede;
@@ -55,6 +57,7 @@
     .blog-post .card:hover {
       transform: scale(1.02);
     }
+
     /* Rodapé */
     footer {
       background-color: #333;
@@ -90,7 +93,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-section text-center">
+  <section class="hero-section">
     <div class="container">
       <h1 class="display-4 mb-4">Green Wave for Emergency Vehicles</h1>
       <p class="lead">Sistema inteligente de coordenação de semáforos para veículos de emergência</p>
@@ -307,7 +310,7 @@
     </div>
   </section>
 
-  <!-- Calendário -->
+  <!-- Calendário (agora títulos em vermelho em vez de verde) -->
   <section id="schedule" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-5">Calendário do Projeto</h2>
@@ -315,7 +318,7 @@
         <div class="col-md-6 schedule-item">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="text-success">15 Fev 2025 - Revisão do Projeto</h5>
+              <h5 class="text-danger">15 Fev 2025 - Revisão do Projeto</h5>
               <p>Revisão abrangente do conceito e abordagem inicial do projeto.</p>
             </div>
           </div>
@@ -323,7 +326,7 @@
         <div class="col-md-6 schedule-item">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="text-success">28 Fev 2025 - Desenvolvimento do Website</h5>
+              <h5 class="text-danger">28 Fev 2025 - Desenvolvimento do Website</h5>
               <p>Início do desenvolvimento do website do projeto.</p>
             </div>
           </div>
@@ -331,7 +334,7 @@
         <div class="col-md-6 schedule-item">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="text-success">5 Mar 2025 - Definição de Requisitos</h5>
+              <h5 class="text-danger">5 Mar 2025 - Definição de Requisitos</h5>
               <p>Elaboração detalhada dos requisitos e materiais necessários.</p>
             </div>
           </div>
@@ -339,7 +342,7 @@
         <div class="col-md-6 schedule-item">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="text-success">6 Abr 2025 - Apresentação Intermédia</h5>
+              <h5 class="text-danger">6 Abr 2025 - Apresentação Intermédia</h5>
               <p>Apresentação do progresso e recolha de feedback.</p>
             </div>
           </div>
@@ -347,7 +350,7 @@
         <div class="col-md-6 schedule-item">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="text-success">20 Abr 2025 - Distribuição de Tarefas</h5>
+              <h5 class="text-danger">20 Abr 2025 - Distribuição de Tarefas</h5>
               <p>Divisão equitativa de responsabilidades entre os membros.</p>
             </div>
           </div>
@@ -355,7 +358,7 @@
         <div class="col-md-6 schedule-item">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="text-success">18 Mai 2025 - Primeiro Protótipo</h5>
+              <h5 class="text-danger">18 Mai 2025 - Primeiro Protótipo</h5>
               <p>Desenvolvimento do primeiro protótipo funcional e testes iniciais.</p>
             </div>
           </div>
@@ -363,7 +366,7 @@
         <div class="col-md-6 schedule-item">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="text-success">8 Jun 2025 - Finalização do Projeto</h5>
+              <h5 class="text-danger">8 Jun 2025 - Finalização do Projeto</h5>
               <p>Conclusão, otimizações finais e preparação para entrega.</p>
             </div>
           </div>
