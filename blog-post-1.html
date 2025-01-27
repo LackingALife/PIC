@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog - Post #1</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary-color: #D32F2F; 
+      --secondary-color: #FFD600; 
+      --accent-color: #2E7D32;  
+    }
+    .navbar {
+      background-color: var(--primary-color) !important;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+    }
+    footer a {
+      color: #fff;
+    }
+    /* Layout do Blog */
+    .blog-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .sidebar {
+      flex: 1 1 250px;
+      max-width: 250px;
+    }
+    .blog-content {
+      flex: 1 1 600px;
+      min-width: 300px;
+    }
+    .sidebar .list-group-item.active {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar simples para voltar ao Index -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">ElectroCap</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="pt-5 pb-3">
+    <div class="container">
+      <div class="blog-container">
+        <!-- Sidebar com lista de Posts -->
+        <aside class="sidebar">
+          <h4>Entradas do Blog</h4>
+          <div class="list-group">
+            <!-- Mantém apenas Post #1 como ativo (porque #2 e #3 foram removidos) -->
+            <a href="blog-post-1.html" class="list-group-item list-group-item-action active">Post #1 (12/01/2025)</a>
+            <!-- Caso futuramente surjam outros posts, basta adicioná-los aqui -->
+          </div>
+        </aside>
+
+        <!-- Conteúdo Principal do Post #1 -->
+        <div class="blog-content">
+          <h2>Post #1: Apresentação do Projeto</h2>
+          <p class="text-muted">Data: 12 de Janeiro 2025</p>
+          <p>
+            Bem-vindo(a) à primeira entrada de blog do nosso projeto 
+            <strong>Green Wave for Emergency Vehicles</strong>. O objetivo principal 
+            desta iniciativa é reduzir o tempo de resposta em emergências, através de um 
+            sistema inteligente que coordene semáforos para criar uma “onda verde” 
+            específica para veículos de emergência.
+          </p>
+          <p>
+            <em>Por que isso é importante?</em> Em situações de urgência, cada segundo 
+            conta. Se uma ambulância ou viatura de bombeiros ficar presa no trânsito, 
+            vidas podem estar em risco. A ideia central é que o sistema detete o veículo
+            de emergência e ajuste automaticamente os sinais de trânsito ao longo do 
+            percurso, permitindo um tráfego mais fluido.
+          </p>
+          <p>
+            Nesta fase inicial, nossa equipa já começou a mapear os requisitos do sistema,
+            estudando tecnologias existentes e explorando o uso de IA para previsão de 
+            congestionamentos. Nos próximos passos, aprofundaremos no desenvolvimento do 
+            primeiro protótipo e na integração com possíveis parceiros, como <strong>EMEL</strong> 
+            e <strong>INEM</strong>.
+          </p>
+          <p>
+            Acompanhe-nos para ver como este projeto evolui e, se tiver quaisquer 
+            dúvidas ou sugestões, não hesite em entrar em contacto através do nosso 
+            formulário no site!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 mt-5">
+    <div class="container text-center">
+      <p><a href="index.html">Voltar à Página Principal</a></p>
+      <p>&copy; 2025 ElectroCap Team</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
