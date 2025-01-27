@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroCap - Green Wave for Emergency Vehicles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2E7D32; /* Verde emergência */
+            --secondary-color: #D32F2F; /* Vermelho alerta */
+        }
+        .navbar { background-color: var(--primary-color)!important; }
+        .hero-section { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('traffic-bg.jpg');
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+        }
+        .timeline { position: relative; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">ElectroCap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Equipa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">Calendário</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contactos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 mb-4">Green Wave for Emergency Vehicles</h1>
+            <p class="lead">Sistema inteligente de coordenação de semáforos para veículos de emergência</p>
+        </div>
+    </section>
+
+    <!-- Sobre o Projeto -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Sobre o Projeto</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Problema</h3>
+                    <p>Os atrasos no trânsito podem custar vidas em situações de emergência. Nosso sistema visa reduzir o tempo de resposta através da coordenação inteligente de semáforos.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Solução</h3>
+                    <ul>
+                        <li>Rede de sensores integrados</li>
+                        <li>Algoritmos de IA para previsão de tráfego</li>
+                        <li>Sincronização de onda verde</li>
+                        <li>Integração com sistemas de emergência</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipa -->
+    <section id="team" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nossa Equipa</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Dinis Silva</h5>
+                            <p>Programação & Coordenação</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repetir para outros membros -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendário Integrado -->
+    <section id="schedule" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Calendário do Projeto</h2>
+            <div class="timeline">
+                <!-- Eventos do calendário acadêmico -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>15 Fev - Revisão do Projeto</h5>
+                                <p>Apresentação inicial à coordenação</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Eventos da disciplina -->
+                <div class="row mb-4">
+                    <div class="col-md-6 offset-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>28 Fev - Entrega PI366</h5>
+                                <p>Primeira entrega da disciplina</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>Parceiros: EMEL | INEM | Técnico Lisboa</p>
+            <p>© 2024 ElectroCap Team - PI366</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
