@@ -1,216 +1,387 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroCap - Green Wave for Emergency Vehicles</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #D32F2F;  /* Red */
-            --secondary-color: #FFD600; /* Yellow */
-            --accent-color: #2E7D32;   /* Green */
-        }
-        .navbar { background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--primary-color) 100%)!important; }
-        .hero-section { 
-            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color), var(--primary-color)),
-                        url('traffic-bg.jpg');
-            background-size: cover;
-            background-blend-mode: multiply;
-            color: white;
-            padding: 150px 0;
-        }
-        .timeline-item:nth-child(odd) .card { border-left: 3px solid var(--primary-color); }
-        .timeline-item:nth-child(even) .card { border-right: 3px solid var(--accent-color); }
-        .team-card { transition: transform 0.3s; }
-        .team-card:hover { transform: translateY(-5px); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroCap - Green Wave for Emergency Vehicles</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #D32F2F;  /* Vermelho principal */
+      --secondary-color: #FFD600; /* Amarelo */
+      --accent-color: #2E7D32;   /* Verde */
+    }
+
+    /* Navbar com cor sólida em vez de gradiente */
+    .navbar {
+      background-color: var(--primary-color) !important;
+    }
+
+    /* Hero Section mantém a imagem de fundo sem gradiente sobreposto */
+    .hero-section {
+      background: url('traffic-bg.jpg') center center no-repeat;
+      background-size: cover;
+      color: white;
+      padding: 150px 0;
+      position: relative;
+    }
+    /* Para melhor legibilidade do texto na imagem, adicionamos um overlay escuro translúcido */
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .hero-section .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Cartões de equipa */
+    .team-card {
+      transition: transform 0.3s;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Seção Calendário */
+    .schedule-item .card {
+      border-left: 5px solid var(--accent-color);
+    }
+
+    /* Seção Blog */
+    .blog-post .card {
+      border: 1px solid #dedede;
+      transition: transform 0.3s;
+    }
+    .blog-post .card:hover {
+      transform: scale(1.02);
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">ElectroCap</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Equipa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#schedule">Calendário</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contactos</a></li>
-                </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">ElectroCap</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Equipa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#schedule">Calendário</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contactos</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 mb-4">Green Wave for Emergency Vehicles</h1>
+      <p class="lead">Sistema inteligente de coordenação de semáforos para veículos de emergência</p>
+    </div>
+  </section>
+
+  <!-- Sobre o Projeto -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Sobre o Projeto</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="text-danger">Problema</h3>
+              <p>Os atrasos no trânsito podem custar vidas em situações de emergência. Nosso sistema visa reduzir o tempo de resposta através da coordenação inteligente de semáforos, permitindo que veículos de emergência usufruam de uma “onda verde” para maior rapidez e segurança.</p>
             </div>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-4 mb-4">Green Wave for Emergency Vehicles</h1>
-            <p class="lead">Sistema inteligente de coordenação de semáforos para veículos de emergência</p>
-        </div>
-    </section>
-
-    <!-- Sobre o Projeto -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Sobre o Projeto</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="text-danger">Problema</h3>
-                            <p>Os atrasos no trânsito podem custar vidas em situações de emergência. Nosso sistema visa reduzir o tempo de resposta através da coordenação inteligente de semáforos.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="text-success">Solução</h3>
-                            <ul class="list-unstyled">
-                                <li>✅ Rede de sensores integrados</li>
-                                <li>🤖 Algoritmos de IA para previsão de tráfego</li>
-                                <li>🚦 Sincronização de onda verde</li>
-                                <li>🚑 Integração com sistemas de emergência</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="text-success">Solução</h3>
+              <ul class="list-unstyled">
+                <li>✅ Rede de sensores integrados</li>
+                <li>🤖 Algoritmos de IA para previsão de tráfego</li>
+                <li>🚦 Sincronização de “onda verde”</li>
+                <li>🚑 Integração com sistemas de emergência (ambulâncias, bombeiros, etc.)</li>
+              </ul>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Equipa -->
-    <section id="team" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Nossa Equipa</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card team-card h-100">
-                        <div class="card-body">
-                            <h5>Dinis Silva</h5>
-                            <p class="text-muted">Programação & Coordenação</p>
-                            <ul>
-                                <li>Desenvolvimento do Protótipo</li>
-                                <li>Integração de Dados</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Repeat for all team members with their specific roles -->
-                <div class="col-md-4">
-                    <div class="card team-card h-100">
-                        <div class="card-body">
-                            <h5>Henrique Rodrigues</h5>
-                            <p class="text-muted">Programação/Media</p>
-                            <ul>
-                                <li>Dados GPS em Tempo Real</li>
-                                <li>Desenvolvimento do Website</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add other team members following the same structure -->
+  <!-- Equipa -->
+  <section id="team" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Nossa Equipa</h2>
+      <div class="row g-4">
+        <!-- Bloco 1: Dinis Silva -->
+        <div class="col-md-4">
+          <div class="card team-card h-100">
+            <div class="card-body">
+              <h5 class="fw-bold">Dinis Silva</h5>
+              <p class="text-muted">Programação</p>
+              <ul>
+                <li>Obter GPS em tempo real</li>
+                <li>Coordenar múltiplos veículos de emergência</li>
+                <li>Recalcular rota dinamicamente</li>
+                <li>Desenvolver Website</li>
+              </ul>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Calendário -->
-    <section id="schedule" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Calendário do Projeto</h2>
-            <div class="timeline">
-                <div class="timeline-item row g-4 mb-4">
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="text-success">15 Fev - Revisão do Projeto</h5>
-                                <p>Apresentação inicial à coordenação</p>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width: 100%">Concluído</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add all schedule items from proposal -->
+        <!-- Bloco 2: Mafalda Lopes -->
+        <div class="col-md-4">
+          <div class="card team-card h-100">
+            <div class="card-body">
+              <h5 class="fw-bold">Mafalda Lopes</h5>
+              <p class="text-muted">Coordenadora de Sistema</p>
+              <ul>
+                <li>Desenvolver Poster</li>
+                <li>Calcular rota mais curta</li>
+                <li>Registar estado de semáforos</li>
+                <li>Escalabilidade do Sistema</li>
+              </ul>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Blog -->
-    <section id="blog" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Últimas Atualizações</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5>Primeiro Protótipo</h5>
-                            <p class="text-muted">15 Maio 2024</p>
-                            <p>Desenvolvimento do primeiro protótipo funcional...</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add blog posts -->
+        <!-- Bloco 3: Henrique Rodrigues -->
+        <div class="col-md-4">
+          <div class="card team-card h-100">
+            <div class="card-body">
+              <h5 class="fw-bold">Henrique Rodrigues</h5>
+              <p class="text-muted">Programação/Media</p>
+              <ul>
+                <li>Detetar semáforos relevantes</li>
+                <li>Integrar dados de via</li>
+                <li>Desenvolver Protótipo</li>
+                <li>Produzir vídeo</li>
+              </ul>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Contactos -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Contacte-nos</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="mailto:henrique.d.sousa.rodrigues@tecnico.ulisboa.pt" method="post" enctype="text/plain">
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="name" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Mensagem</label>
-                                    <textarea class="form-control" id="message" rows="4" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-danger">Enviar Mensagem</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+      <div class="row g-4 mt-4">
+        <!-- Bloco 4: Martim Sousa -->
+        <div class="col-md-4">
+          <div class="card team-card h-100">
+            <div class="card-body">
+              <h5 class="fw-bold">Martim Sousa</h5>
+              <p class="text-muted">Programação</p>
+              <ul>
+                <li>Controlo de semáforos</li>
+                <li>Simular cenários de tráfego</li>
+                <li>Programação de sistemas embebidos</li>
+                <li>Sincronizar onda verde</li>
+              </ul>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5>Parceiros</h5>
-                    <p>EMEL | INEM | Técnico Lisboa</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Contacto</h5>
-                    <p>henrique.d.sousa.rodrigues@tecnico.ulisboa.pt</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Projeto PI366</h5>
-                    <p>© 2024 ElectroCap Team</p>
-                </div>
+        <!-- Bloco 5: Pedro Rodrigues -->
+        <div class="col-md-4">
+          <div class="card team-card h-100">
+            <div class="card-body">
+              <h5 class="fw-bold">Pedro Rodrigues</h5>
+              <p class="text-muted">Programação/Circuitos</p>
+              <ul>
+                <li>Sincronizar onda verde</li>
+                <li>Estimar tempo de chegada</li>
+                <li>Priorização de ruas</li>
+                <li>Desenvolver Protótipo</li>
+              </ul>
             </div>
+          </div>
         </div>
-    </footer>
+        <!-- Bloco 6: Joana Teixeira -->
+        <div class="col-md-4">
+          <div class="card team-card h-100">
+            <div class="card-body">
+              <h5 class="fw-bold">Joana Teixeira</h5>
+              <p class="text-muted">Comunicação</p>
+              <ul>
+                <li>Consultoria de Parceiros</li>
+                <li>Estudar casos-limite</li>
+                <li>Desenvolver Sistema de Alertas</li>
+                <li>Escrever Blog</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Calendário -->
+  <section id="schedule" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Calendário do Projeto</h2>
+      <div class="row gy-4">
+        <div class="col-md-6 schedule-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="text-success">15 Fev 2025 - Revisão do Projeto</h5>
+              <p>Revisão abrangente do conceito e abordagem inicial do projeto</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 schedule-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="text-success">28 Fev 2025 - Desenvolvimento do Website</h5>
+              <p>Início do desenvolvimento do website do projeto</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 schedule-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="text-success">5 Mar 2025 - Definição de Requisitos</h5>
+              <p>Elaboração detalhada dos requisitos da solução e materiais necessários</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 schedule-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="text-success">6 Abr 2025 - Apresentação Intermédia</h5>
+              <p>Apresentação do progresso e recolha de feedback</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 schedule-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="text-success">20 Abr 2025 - Distribuição de Tarefas</h5>
+              <p>Divisão equitativa de responsabilidades entre os membros</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 schedule-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="text-success">18 Mai 2025 - Primeiro Protótipo</h5>
+              <p>Desenvolvimento do primeiro protótipo funcional e testes iniciais</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 schedule-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="text-success">8 Jun 2025 - Finalização do Projeto</h5>
+              <p>Conclusão, otimizações finais e preparação para entrega</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog: colocado na página principal com todas as entradas -->
+  <section id="blog" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Blog do Projeto</h2>
+      <div class="row g-4">
+        <!-- Exemplo de vários posts de blog -->
+        <div class="col-md-4 blog-post">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5>Post #1: Apresentação do Projeto</h5>
+              <p class="text-muted">Data: 12 de Janeiro 2025</p>
+              <p class="mb-0">Nesta primeira entrada de blog, explicamos a motivação, os principais objetivos e o grande desafio que envolve coordenação de semáforos para veículos de emergência...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 blog-post">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5>Post #2: Progresso Inicial</h5>
+              <p class="text-muted">Data: 20 de Janeiro 2025</p>
+              <p class="mb-0">Já começámos a desenvolver as primeiras simulações de tráfego. Nosso foco é garantir que os tempos de sinal sejam otimizados para dar prioridade a ambulâncias...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 blog-post">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5>Post #3: Implementando Algoritmos de IA</h5>
+              <p class="text-muted">Data: 27 de Janeiro 2025</p>
+              <p class="mb-0">Nesta fase, introduzimos algoritmos de Machine Learning para prever congestionamentos e ajudar a criar rotas mais rápidas para veículos de emergência. Os testes preliminares são promissores...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caso queira mais entradas, basta replicar este bloco -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contactos -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Contacte-nos</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <form action="mailto:henrique.d.sousa.rodrigues@tecnico.ulisboa.pt" method="post" enctype="text/plain">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nome</label>
+                  <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Mensagem</label>
+                  <textarea class="form-control" id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger">Enviar Mensagem</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>Parceiros</h5>
+          <p>EMEL | INEM | Técnico Lisboa</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Contacto</h5>
+          <p>henrique.d.sousa.rodrigues@tecnico.ulisboa.pt</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Projeto PI366</h5>
+          <p>© 2025 ElectroCap Team</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
