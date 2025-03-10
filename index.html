@@ -3,32 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ElectroCap - Green Wave for Emergency Vehicles</title>
+  <title>RescueFlow - Green Wave for Emergency Vehicles</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <style>
     :root {
-      --primary-color: #2E7D32;   /* Verde principal */
+      --primary-color: #0B3C30;   /* Verde escuro do logo */
       --secondary-color: #FFD600; /* Amarelo */
-      --accent-color: #2E7D32;    /* Também Verde (pode ser ajustado se necessário) */
+      --accent-color: #0B3C30;    /* Verde escuro do logo */
+      --background-color: #F8EAEA; /* Cor de fundo do logo */
     }
 
-    /* Navbar: em verde */
+    /* Navbar: em verde escuro */
     .navbar {
       background-color: var(--primary-color) !important;
     }
 
-    /* Hero Section com fundo verde e texto branco */
-    .hero-section {
-      background-color: var(--accent-color);
-      color: #fff; /* texto branco */
-      padding: 150px 0;
-      position: relative;
+    /* Banner Section com fundo rosa claro e texto verde escuro */
+    .banner-section {
+      background-color: var(--background-color);
+      padding: 50px 0;
       text-align: center;
     }
     
-    .hero-section h1, 
-    .hero-section p {
-      color: #fff !important;
+    .logo-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .banner-section img {
+      max-width: 100%;
+      height: auto;
     }
 
     /* Cartões de equipa */
@@ -38,11 +43,6 @@
     }
     .team-card:hover {
       transform: translateY(-5px);
-    }
-
-    /* Seção Calendário */
-    .schedule-item .card {
-      border-left: 5px solid var(--accent-color);
     }
 
     /* Seção Blog (Index) */
@@ -55,9 +55,68 @@
       transform: scale(1.02);
     }
 
+    /* Roadmap styling */
+    .roadmap-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    .roadmap-timeline {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    
+    .roadmap-phase {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      position: relative;
+      margin: 0 5px;
+    }
+    
+    .phase-1 { background-color: #ffcdd2; }
+    .phase-2 { background-color: #ffecb3; }
+    .phase-3 { background-color: #c8e6c9; }
+    .phase-4 { background-color: #bbdefb; }
+    .phase-5 { background-color: #d1c4e9; }
+    
+    .timeline-circle {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      border-radius: 50%;
+      border: 2px solid #333;
+      margin-bottom: 5px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+    
+    .roadmap-content {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .milestone-card {
+      flex: 1;
+      padding: 10px;
+      margin: 0 5px;
+      height: 100%;
+    }
+
+    /* Parceiros section styling */
+    .partner-img {
+      height: 120px;
+      object-fit: contain;
+      margin: 0 20px;
+    }
+
     /* Rodapé */
     footer {
-      background-color: #333;
+      background-color: var(--primary-color);
       color: #fff;
     }
     footer a {
@@ -76,8 +135,12 @@
     }
     
     .btn-primary:hover {
-      background-color: #1b5e20;
-      border-color: #1b5e20;
+      background-color: #082720;
+      border-color: #082720;
+    }
+
+    .card-header {
+      background-color: var(--primary-color) !important;
     }
   </style>
 </head>
@@ -85,12 +148,13 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">ElectroCap</a>
+      <a class="navbar-brand" href="#">RescueFlow</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="#competitors">Concorrentes</a></li>
           <li class="nav-item"><a class="nav-link" href="#requirements">Requisitos</a></li>
@@ -98,24 +162,76 @@
           <li class="nav-item"><a class="nav-link" href="#partners">Parceiros</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">Equipa</a></li>
           <li class="nav-item"><a class="nav-link" href="#schedule">Calendário</a></li>
-          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contactos</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
+  <!-- Banner Section with RescueFlow Logo -->
+  <section class="banner-section">
     <div class="container">
-      <h1 class="display-4 mb-4">Green Wave for Emergency Vehicles</h1>
-      <p class="lead">Sistema inteligente de coordenação de semáforos para veículos de emergência</p>
-      <a href="#about" class="btn btn-light mt-3">Saiba Mais</a>
+      <div class="logo-container">
+        <img src="images/rescueflow.png" alt="RescueFlow - Cada Segundo Conta" class="img-fluid">
+      </div>
+      <p class="lead mt-3">Sistema inteligente de coordenação de semáforos para veículos de emergência</p>
+      <a href="#blog" class="btn btn-primary mt-3">Saiba Mais</a>
+    </div>
+  </section>
+
+  <!-- Blog do Projeto -->
+  <section id="blog" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Blog do Projeto</h2>
+      <div class="row g-4 justify-content-center">
+        <!-- Post #1 -->
+        <div class="col-md-4 blog-post">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5>Post #1: Apresentação do Projeto</h5>
+              <p class="text-muted">Data: 12 de Janeiro 2025</p>
+              <p class="mb-3">
+                Nesta primeira entrada de blog, explicamos a motivação, os principais objetivos e 
+                o grande desafio que envolve a coordenação de semáforos para veículos de emergência...
+              </p>
+              <a href="blog-post-1.html" class="btn btn-outline-success">Ler mais</a>
+            </div>
+          </div>
+        </div>
+        <!-- Post #2 -->
+        <div class="col-md-4 blog-post">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5>Post #2: O Impacto da Sincronização de Semáforos</h5>
+              <p class="text-muted">Data: 28 de Fevereiro 2025</p>
+              <p class="mb-3">
+                Entrevistamos um ex-condutor de ambulâncias para compreender os desafios enfrentados pelos 
+                veículos de emergência e como a sincronização de semáforos pode revolucionar o tempo de resposta...
+              </p>
+              <a href="blog-post-2.html" class="btn btn-outline-success">Ler mais</a>
+            </div>
+          </div>
+        </div>
+        <!-- Post #3 (Novo) -->
+        <div class="col-md-4 blog-post">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5>Post #3: Corrida Contra o Tempo</h5>
+              <p class="text-muted">Data: 15 de Março 2025</p>
+              <p class="mb-3">
+                Entrevistamos dois profissionais experientes para entender melhor os desafios enfrentados 
+                pelos condutores de ambulância e como nossa tecnologia pode fazer a diferença no dia a dia...
+              </p>
+              <a href="blog-post-3.html" class="btn btn-outline-success">Ler mais</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Sobre o Projeto -->
-  <section id="about" class="py-5">
+  <section id="about" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-5">Sobre o Projeto</h2>
       <div class="row g-4">
@@ -138,7 +254,6 @@
               <h3 class="text-success">Solução</h3>
               <ul class="list-unstyled">
                 <li>✅ Rede de sensores integrados</li>
-                <li>🤖 Algoritmos de IA para previsão de tráfego</li>
                 <li>🚦 Sincronização de "onda verde"</li>
                 <li>🚑 Integração com sistemas de emergência (ambulâncias, bombeiros, etc.)</li>
               </ul>
@@ -150,13 +265,13 @@
   </section>
 
   <!-- Concorrentes e Trabalhos Anteriores -->
-  <section id="competitors" class="py-5 bg-light">
+  <section id="competitors" class="py-5">
     <div class="container">
       <h2 class="text-center mb-5">Concorrentes e Trabalhos Anteriores</h2>
       <div class="row">
         <div class="col-md-6">
           <div class="card mb-4 h-100 shadow">
-            <div class="card-header bg-success text-white">
+            <div class="card-header text-white">
               Baseados em Lisboa
             </div>
             <div class="card-body">
@@ -169,7 +284,7 @@
         </div>
         <div class="col-md-6">
           <div class="card mb-4 h-100 shadow">
-            <div class="card-header bg-success text-white">
+            <div class="card-header text-white">
               Fora de Lisboa
             </div>
             <div class="card-body">
@@ -181,20 +296,14 @@
           </div>
         </div>
       </div>
-      <div class="card mt-3 shadow">
-        <div class="card-body">
-          <p>
-            Estes sistemas servem como referência inicial, embora nosso projeto foque 
-            especificamente na coordenação inteligente para veículos de emergência
-            e possa diferir na arquitetura e no uso de IA avançada para otimização de rotas.
-          </p>
-        </div>
+        
+      
       </div>
     </div>
   </section>
 
   <!-- Requisitos da Solução -->
-  <section id="requirements" class="py-5">
+  <section id="requirements" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-5">Requisitos da Solução</h2>
       <div class="card shadow">
@@ -228,13 +337,13 @@
   </section>
 
   <!-- Desafios Técnicos -->
-  <section id="challenges" class="py-5 bg-light">
+  <section id="challenges" class="py-5">
     <div class="container">
       <h2 class="text-center mb-5">Desafios Técnicos</h2>
       <div class="row">
         <div class="col-md-6">
           <div class="card mb-4 shadow h-100">
-            <div class="card-header bg-success text-white">
+            <div class="card-header text-white">
               Detecção e Automação
             </div>
             <div class="card-body">
@@ -247,7 +356,7 @@
         </div>
         <div class="col-md-6">
           <div class="card mb-4 shadow h-100">
-            <div class="card-header bg-success text-white">
+            <div class="card-header text-white">
               Cobertura e Integração
             </div>
             <div class="card-body">
@@ -264,18 +373,12 @@
   </section>
 
   <!-- Parceiros -->
-  <section id="partners" class="py-5">
+  <section id="partners" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-5">Parceiros</h2>
-      <div class="card shadow">
-        <div class="card-body">
-          <p>
-            Parceiros potenciais para o projeto incluem organizações como EMEL, INEM e outras entidades 
-            de resposta a emergências. Essas parcerias oferecem conhecimentos valiosos, recursos e 
-            experiência prática, garantindo que o projeto se alinhe com as necessidades reais dos 
-            serviços de emergência, aumentando seu impacto e eficácia.
-          </p>
-        </div>
+      <div class="text-center">
+        <img src="images/EMEL_logo.png" alt="EMEL" class="partner-img">
+        <img src="images/INEM_logo.png" alt="INEM" class="partner-img">
       </div>
     </div>
   </section>
@@ -381,101 +484,58 @@
     </div>
   </section>
 
-  <!-- Calendário -->
+  <!-- Calendário - CONVERTED TO ROADMAP -->
   <section id="schedule" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-5">Calendário do Projeto</h2>
-      <div class="row gy-4">
-        <div class="col-md-6 schedule-item">
-          <div class="card h-100 shadow">
-            <div class="card-body">
-              <h5 class="text-success">15 Fev 2025 - Revisão do Projeto</h5>
-              <p>Revisão abrangente do conceito e abordagem inicial do projeto.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 schedule-item">
-          <div class="card h-100 shadow">
-            <div class="card-body">
-              <h5 class="text-success">28 Fev 2025 - Desenvolvimento do Website</h5>
-              <p>Início do desenvolvimento do website do projeto.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 schedule-item">
-          <div class="card h-100 shadow">
-            <div class="card-body">
-              <h5 class="text-success">5 Mar 2025 - Definição de Requisitos</h5>
-              <p>Elaboração detalhada dos requisitos e materiais necessários.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 schedule-item">
-          <div class="card h-100 shadow">
-            <div class="card-body">
-              <h5 class="text-success">6 Abr 2025 - Apresentação Intermédia</h5>
-              <p>Apresentação do progresso e recolha de feedback.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 schedule-item">
-          <div class="card h-100 shadow">
-            <div class="card-body">
-              <h5 class="text-success">20 Abr 2025 - Distribuição de Tarefas</h5>
-              <p>Divisão equitativa de responsabilidades entre os membros.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 schedule-item">
-          <div class="card h-100 shadow">
-            <div class="card-body">
-              <h5 class="text-success">18 Mai 2025 - Primeiro Protótipo</h5>
-              <p>Desenvolvimento do primeiro protótipo funcional e testes iniciais.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 schedule-item">
-          <div class="card h-100 shadow">
-            <div class="card-body">
-              <h5 class="text-success">8 Jun 2025 - Finalização do Projeto</h5>
-              <p>Conclusão, otimizações finais e preparação para entrega.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      
+      <!-- Roadmap Timeline -->
+      <div class="roadmap-container mb-5">
 
-  <!-- Blog (Agora com 2 Posts) -->
-  <section id="blog" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5">Blog do Projeto</h2>
-      <div class="row g-4 justify-content-center">
-        <!-- Post #1 -->
-        <div class="col-md-6 blog-post">
-          <div class="card h-100">
+      
+      <!-- Milestones Cards -->
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <div class="card-header text-white">
+              Fase 1: Definição (Fev-Mar 2025)
+            </div>
             <div class="card-body">
-              <h5>Post #1: Apresentação do Projeto</h5>
-              <p class="text-muted">Data: 12 de Janeiro 2025</p>
-              <p class="mb-3">
-                Nesta primeira entrada de blog, explicamos a motivação, os principais objetivos e 
-                o grande desafio que envolve a coordenação de semáforos para veículos de emergência...
-              </p>
-              <a href="blog-post-1.html" class="btn btn-outline-success">Ler mais</a>
+              <ul>
+                <li>15 Fev: Revisão do Projeto</li>
+                <li>28 Fev: Desenvolvimento do Website</li>
+                <li>5 Mar: Definição de Requisitos</li>
+              </ul>
             </div>
           </div>
         </div>
-        <!-- Post #2 (Novo) -->
-        <div class="col-md-6 blog-post">
-          <div class="card h-100">
+        
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <div class="card-header text-white">
+              Fase 2: Desenvolvimento (Abr-Mai 2025)
+            </div>
             <div class="card-body">
-              <h5>Post #2: O Impacto da Sincronização de Semáforos</h5>
-              <p class="text-muted">Data: 28 de Fevereiro 2025</p>
-              <p class="mb-3">
-                Entrevistamos um ex-condutor de ambulâncias para compreender os desafios enfrentados pelos 
-                veículos de emergência e como a sincronização de semáforos pode revolucionar o tempo de resposta...
-              </p>
-              <a href="blog-post-2.html" class="btn btn-outline-success">Ler mais</a>
+              <ul>
+                <li>6 Abr: Apresentação Intermédia</li>
+                <li>20 Abr: Distribuição de Tarefas</li>
+                <li>18 Mai: Primeiro Protótipo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <div class="card-header text-white">
+              Fase 3: Finalização (Jun 2025)
+            </div>
+            <div class="card-body">
+              <ul>
+                <li>8 Jun: Finalização do Projeto</li>
+                <li>15 Jun: Testes finais</li>
+                <li>30 Jun: Entrega e apresentação</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -484,7 +544,7 @@
   </section>
 
   <!-- Contactos -->
-  <section id="contact" class="py-5 bg-light">
+  <section id="contact" class="py-5">
     <div class="container">
       <h2 class="text-center mb-5">Contacte-nos</h2>
       <div class="row justify-content-center">
@@ -504,7 +564,7 @@
                   <label for="message" class="form-label">Mensagem</label>
                   <textarea class="form-control" id="message" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-success">Enviar Mensagem</button>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
               </form>
             </div>
           </div>
@@ -529,7 +589,7 @@
         </div>
         <div class="col-md-4">
           <h5>Projeto PI366</h5>
-          <p>© 2025 ElectroCap Team</p>
+          <p>© 2025 RescueFlow Team</p>
         </div>
       </div>
     </div>
