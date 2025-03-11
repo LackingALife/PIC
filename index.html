@@ -45,6 +45,18 @@
       transform: translateY(-5px);
     }
 
+    /* Fotos da equipa */
+    .team-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--primary-color);
+      margin: 0 auto 15px;
+      display: block;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
     /* Seção Blog (Index) */
     .blog-post .card {
       border: 1px solid #dedede;
@@ -55,56 +67,131 @@
       transform: scale(1.02);
     }
 
-    /* Roadmap styling */
-    .roadmap-container {
+    /* Timeline styling */
+    .timeline {
       position: relative;
-      width: 100%;
-      overflow: hidden;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    
-    .roadmap-timeline {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
     }
-    
-    .roadmap-phase {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      border-radius: 5px;
+
+    .timeline-container {
+      padding: 10px 40px;
       position: relative;
-      margin: 0 5px;
+      background-color: inherit;
+      width: 50%;
     }
-    
-    .phase-1 { background-color: #ffcdd2; }
-    .phase-2 { background-color: #ffecb3; }
-    .phase-3 { background-color: #c8e6c9; }
-    .phase-4 { background-color: #bbdefb; }
-    .phase-5 { background-color: #d1c4e9; }
-    
-    .timeline-circle {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
+
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -13px;
       background-color: white;
+      border: 4px solid var(--secondary-color);
+      top: 20px;
       border-radius: 50%;
-      border: 2px solid #333;
-      margin-bottom: 5px;
-      line-height: 26px;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid var(--primary-color);
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent var(--primary-color);
+    }
+
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid var(--primary-color);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent var(--primary-color) transparent transparent;
+    }
+
+    .right::after {
+      left: -12px;
+    }
+
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    }
+
+    .timeline-content h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .timeline-date {
+      display: inline-block;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 5px 10px;
+      border-radius: 20px;
       font-weight: bold;
+      margin-bottom: 10px;
     }
-    
-    .roadmap-content {
-      display: flex;
-      justify-content: space-between;
-    }
-    
-    .milestone-card {
-      flex: 1;
-      padding: 10px;
-      margin: 0 5px;
-      height: 100%;
+
+    /* Timeline responsive */
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-container::before {
+        left: 60px;
+        border: medium solid var(--primary-color);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--primary-color) transparent transparent;
+      }
+
+      .left::after, .right::after {
+        left: 19px;
+      }
+      
+      .right {
+        left: 0%;
+      }
     }
 
     /* Parceiros section styling */
@@ -212,7 +299,7 @@
             </div>
           </div>
         </div>
-        <!-- Post #3 (Novo) -->
+        <!-- Post #3 -->
         <div class="col-md-4 blog-post">
           <div class="card h-100">
             <div class="card-body">
@@ -223,6 +310,36 @@
                 pelos condutores de ambulância e como nossa tecnologia pode fazer a diferença no dia a dia...
               </p>
               <a href="blog-post-3.html" class="btn btn-outline-success">Ler mais</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 justify-content-center mt-4">
+        <!-- Post #4 -->
+        <div class="col-md-4 blog-post">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5>Post #4: Testemunho de um Condutor em Atividade</h5>
+              <p class="text-muted">Data: 2 de Abril 2025</p>
+              <p class="mb-3">
+                Henrique e Dinis entrevistam um condutor de ambulância em atividade que compartilha
+                sua experiência diária nas ruas e os desafios de navegar no trânsito urbano...
+              </p>
+              <a href="blog-post-4.html" class="btn btn-outline-success">Ler mais</a>
+            </div>
+          </div>
+        </div>
+        <!-- Post #5 -->
+        <div class="col-md-4 blog-post">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5>Post #5: Perspectiva de um Ex-Condutor</h5>
+              <p class="text-muted">Data: 15 de Abril 2025</p>
+              <p class="mb-3">
+                Mafalda e Joana conversam com um experiente ex-condutor de ambulância sobre os 
+                obstáculos que enfrentou durante anos e como a tecnologia poderia ter feito diferença...
+              </p>
+              <a href="blog-post-5.html" class="btn btn-outline-success">Ler mais</a>
             </div>
           </div>
         </div>
@@ -296,9 +413,6 @@
           </div>
         </div>
       </div>
-        
-      
-      </div>
     </div>
   </section>
 
@@ -309,21 +423,14 @@
       <div class="card shadow">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <h5 class="text-success"><i class="bi bi-check-circle"></i> Prevenção e Reação</h5>
               <p>
                 O sistema deve ser capaz de prevenir tráfego numa rota específica e reagir ao movimento do
                 veículo de emergência, mantendo rotas de "escape" livres para emergências.
               </p>
             </div>
-            <div class="col-md-4 mb-3">
-              <h5 class="text-success"><i class="bi bi-map"></i> Escolha de Rota</h5>
-              <p>
-                Também deve auxiliar na escolha de rota, mudando-a se uma mais rápida se tornar disponível,
-                prevendo qual ficará livre primeiro e oferecerá espaço adequado.
-              </p>
-            </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 mb-3">
               <h5 class="text-success"><i class="bi bi-gear"></i> Confiabilidade</h5>
               <p>
                 O sistema deve reagir rapidamente a mudanças, manter comunicação constante, 
@@ -390,45 +497,45 @@
       <div class="row g-4">
         <!-- Bloco 1: Dinis Silva -->
         <div class="col-md-4">
-          <div class="card team-card h-100">
+          <div class="card team-card h-100 text-center">
             <div class="card-body">
+              <img src="images/team/Dinis-Silva.jpeg" alt="Dinis Silva" class="team-photo">
               <h5 class="fw-bold">Dinis Silva</h5>
-              <p class="text-muted">Programação</p>
-              <ul>
-                <li>Obter GPS em tempo real</li>
-                <li>Coordenar múltiplos veículos de emergência</li>
-                <li>Recalcular rota dinamicamente</li>
-                <li>Desenvolver Website</li>
+              <p class="text-muted">Testes e Coordenação</p>
+              <ul class="list-unstyled text-start">
+                <li>• Desenvolvimento de testes</li>
+                <li>• Produção de vídeo</li>
+                <li>• Consultoria de parceiros</li>
               </ul>
             </div>
           </div>
         </div>
         <!-- Bloco 2: Mafalda Lopes -->
         <div class="col-md-4">
-          <div class="card team-card h-100">
+          <div class="card team-card h-100 text-center">
             <div class="card-body">
+              <img src="images/team/Mafalda-Lopes.jpeg" alt="Mafalda Lopes" class="team-photo">
               <h5 class="fw-bold">Mafalda Lopes</h5>
-              <p class="text-muted">Coordenadora de Sistema</p>
-              <ul>
-                <li>Desenvolver Poster</li>
-                <li>Calcular rota mais curta</li>
-                <li>Registar estado de semáforos</li>
-                <li>Escalabilidade do Sistema</li>
+              <p class="text-muted">Semáforos e Documentação</p>
+              <ul class="list-unstyled text-start">
+                <li>• Desenvolvimento de semáforos</li>
+                <li>• Pitch deck</li>
+                <li>• Desenvolvimento de maquete</li>
               </ul>
             </div>
           </div>
         </div>
         <!-- Bloco 3: Henrique Rodrigues -->
         <div class="col-md-4">
-          <div class="card team-card h-100">
+          <div class="card team-card h-100 text-center">
             <div class="card-body">
+              <img src="images/team/Henrique-Rodrigues.jpeg" alt="Henrique Rodrigues" class="team-photo">
               <h5 class="fw-bold">Henrique Rodrigues</h5>
-              <p class="text-muted">Programação/Media</p>
-              <ul>
-                <li>Detetar semáforos relevantes</li>
-                <li>Integrar dados de via</li>
-                <li>Desenvolver Protótipo</li>
-                <li>Produzir vídeo</li>
+              <p class="text-muted">Comunicação e Web</p>
+              <ul class="list-unstyled text-start">
+                <li>• Comunicação com ambulâncias</li>
+                <li>• Site e blog</li>
+                <li>• Consultoria de parceiros</li>
               </ul>
             </div>
           </div>
@@ -437,45 +544,45 @@
       <div class="row g-4 mt-4">
         <!-- Bloco 4: Martim Sousa -->
         <div class="col-md-4">
-          <div class="card team-card h-100">
+          <div class="card team-card h-100 text-center">
             <div class="card-body">
+              <img src="images/team/Martim-Sousa.jpeg" alt="Martim Sousa" class="team-photo">
               <h5 class="fw-bold">Martim Sousa</h5>
-              <p class="text-muted">Programação</p>
-              <ul>
-                <li>Controlo de semáforos</li>
-                <li>Simular cenários de tráfego</li>
-                <li>Programação de sistemas embebidos</li>
-                <li>Sincronizar onda verde</li>
+              <p class="text-muted">Desenvolvimento GPS e Semáforos</p>
+              <ul class="list-unstyled text-start">
+                <li>• Desenvolvimento GPS</li>
+                <li>• Desenvolvimento semáforos</li>
+                <li>• Site e blog</li>
               </ul>
             </div>
           </div>
         </div>
         <!-- Bloco 5: Pedro Rodrigues -->
         <div class="col-md-4">
-          <div class="card team-card h-100">
+          <div class="card team-card h-100 text-center">
             <div class="card-body">
+              <img src="images/team/Pedro-Rodrigues.jpeg" alt="Pedro Rodrigues" class="team-photo">
               <h5 class="fw-bold">Pedro Rodrigues</h5>
-              <p class="text-muted">Programação/Circuitos</p>
-              <ul>
-                <li>Sincronizar onda verde</li>
-                <li>Estimar tempo de chegada</li>
-                <li>Priorização de ruas</li>
-                <li>Desenvolver Protótipo</li>
+              <p class="text-muted">Comunicação e Media</p>
+              <ul class="list-unstyled text-start">
+                <li>• Comunicação com ambulâncias</li>
+                <li>• Produção de vídeo</li>
+                <li>• Desenvolvimento de poster</li>
               </ul>
             </div>
           </div>
         </div>
         <!-- Bloco 6: Joana Teixeira -->
         <div class="col-md-4">
-          <div class="card team-card h-100">
+          <div class="card team-card h-100 text-center">
             <div class="card-body">
+              <img src="images/team/Joana-Teixeira.jpeg" alt="Joana Teixeira" class="team-photo">
               <h5 class="fw-bold">Joana Teixeira</h5>
-              <p class="text-muted">Comunicação</p>
-              <ul>
-                <li>Consultoria de Parceiros</li>
-                <li>Estudar casos-limite</li>
-                <li>Desenvolver Sistema de Alertas</li>
-                <li>Escrever Blog</li>
+              <p class="text-muted">Comunicação e Design</p>
+              <ul class="list-unstyled text-start">
+                <li>• Comunicação com ambulâncias</li>
+                <li>• Desenvolvimento de poster</li>
+                <li>• Desenvolvimento de maquete</li>
               </ul>
             </div>
           </div>
@@ -484,59 +591,48 @@
     </div>
   </section>
 
-  <!-- Calendário - CONVERTED TO ROADMAP -->
+  <!-- Calendário - TIMELINE -->
   <section id="schedule" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-5">Calendário do Projeto</h2>
       
-      <!-- Roadmap Timeline -->
-      <div class="roadmap-container mb-5">
-
-      
-      <!-- Milestones Cards -->
-      <div class="row gy-4">
-        <div class="col-md-4">
-          <div class="card shadow h-100">
-            <div class="card-header text-white">
-              Fase 1: Definição (Fev-Mar 2025)
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>15 Fev: Revisão do Projeto</li>
-                <li>28 Fev: Desenvolvimento do Website</li>
-                <li>5 Mar: Definição de Requisitos</li>
-              </ul>
-            </div>
+      <div class="timeline">
+        <!-- Fase 1 -->
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <span class="timeline-date">Fev-Mar 2025</span>
+            <h3>Fase 1: Definição</h3>
+            <ul>
+              <li><strong>15 Fev:</strong> Revisão do Projeto</li>
+              <li><strong>28 Fev:</strong> Desenvolvimento do Website</li>
+              <li><strong>5 Mar:</strong> Definição de Requisitos</li>
+            </ul>
           </div>
         </div>
         
-        <div class="col-md-4">
-          <div class="card shadow h-100">
-            <div class="card-header text-white">
-              Fase 2: Desenvolvimento (Abr-Mai 2025)
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>6 Abr: Apresentação Intermédia</li>
-                <li>20 Abr: Distribuição de Tarefas</li>
-                <li>18 Mai: Primeiro Protótipo</li>
-              </ul>
-            </div>
+        <!-- Fase 2 -->
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <span class="timeline-date">Abr-Mai 2025</span>
+            <h3>Fase 2: Desenvolvimento</h3>
+            <ul>
+              <li><strong>6 Abr:</strong> Apresentação Intermédia</li>
+              <li><strong>20 Abr:</strong> Distribuição de Tarefas</li>
+              <li><strong>18 Mai:</strong> Primeiro Protótipo</li>
+            </ul>
           </div>
         </div>
         
-        <div class="col-md-4">
-          <div class="card shadow h-100">
-            <div class="card-header text-white">
-              Fase 3: Finalização (Jun 2025)
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>8 Jun: Finalização do Projeto</li>
-                <li>15 Jun: Testes finais</li>
-                <li>30 Jun: Entrega e apresentação</li>
-              </ul>
-            </div>
+        <!-- Fase 3 -->
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <span class="timeline-date">Jun 2025</span>
+            <h3>Fase 3: Finalização</h3>
+            <ul>
+              <li><strong>8 Jun:</strong> Finalização do Projeto</li>
+              <li><strong>15 Jun:</strong> Testes finais</li>
+              <li><strong>30 Jun:</strong> Entrega e apresentação</li>
+            </ul>
           </div>
         </div>
       </div>
