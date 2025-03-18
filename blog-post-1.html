@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog - Apresentação do Projeto</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <style>
     :root {
       --primary-color: #0B3C30; 
@@ -21,20 +22,64 @@
     footer a {
       color: #fff;
     }
+    
+    .blog-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .blog-content blockquote {
+      background-color: #f9f9f9;
+      border-left: 4px solid var(--primary-color);
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .blog-content h4 {
+      margin-top: 30px;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: #082720;
+      border-color: #082720;
+    }
+    
+    .list-group-item.active {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
   </style>
 </head>
 <body>
-  <!-- Navbar simples para voltar ao Index -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">RescueFlow</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#team">Equipa</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contactos</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <!-- Layout simplificado conforme a imagem -->
+  <!-- Layout do Conteúdo -->
   <div class="container mt-4">
     <div class="row">
       <!-- Coluna esquerda - Entradas do Blog -->
@@ -43,14 +88,19 @@
         <div class="list-group">
           <a href="blog-post-1.html" class="list-group-item list-group-item-action active">Post #1 (12/01/2025)</a>
           <a href="blog-post-2.html" class="list-group-item list-group-item-action">Post #2 (28/02/2025)</a>
-          <a href="blog-post-3.html" class="list-group-item list-group-item-action">Post #3 (15/03/2025)</a>
-          <a href="blog-post-4.html" class="list-group-item list-group-item-action">Post #4 (02/04/2025)</a>
-          <a href="blog-post-5.html" class="list-group-item list-group-item-action">Post #5 (15/04/2025)</a>
+          <a href="blog-post-3.html" class="list-group-item list-group-item-action">Post #3 (02/04/2025)</a>
+          <a href="blog-post-4.html" class="list-group-item list-group-item-action">Post #4 (15/04/2025)</a>
+        </div>
+        
+        <div class="mt-4">
+          <a href="blog.html" class="btn btn-primary w-100">
+            <i class="bi bi-arrow-left"></i> Voltar ao Blog
+          </a>
         </div>
       </div>
       
       <!-- Coluna direita - Conteúdo do Post -->
-      <div class="col-md-9">
+      <div class="col-md-9 blog-content">
         <h2>Apresentação do Projeto: Green Wave for Emergency Vehicles</h2>
         <p>Data: 12 de Janeiro 2025</p>
         <p class="text-muted">Por: Martim Sousa e Henrique Rodrigues</p>
@@ -71,24 +121,53 @@
         </div>
         
         <p>
-          <em>Por que isso é importante?</em> A ideia central é que o sistema 
-          detete o veículo de emergência e ajuste automaticamente os sinais de trânsito ao longo do percurso, 
-          permitindo um tráfego mais fluido.
+          A ideia central é que o sistema detete o veículo de emergência e ajuste automaticamente os sinais de trânsito ao longo do percurso, 
+          permitindo um tráfego mais fluido. Este conceito transformará a forma como as ambulâncias e outros veículos de emergência navegam 
+          pelo trânsito urbano, especialmente em horas de ponta.
         </p>
         
         <div class="text-center my-4">
-          <img src="images/traffic-lights.jpg" alt="Semáforos inteligentes" class="img-fluid rounded" style="max-width: 80%;">
+          <img src="images/traffic-lights.jpg" alt="Semáforos inteligentes" class="img-fluid rounded" style="max-width: 90%;">
         </div>
+        
+        <h4>Por que este projeto é necessário?</h4>
+        <p>
+          De acordo com estatísticas recentes, pelo menos 11 pessoas perderam a vida no ano passado porque a ajuda chegou tarde demais. 
+          A cada duas semanas, pelo menos uma ambulância sofre um acidente devido ao trânsito. Estes números alarmantes mostram que 
+          o socorro não pode esperar e que precisamos de soluções inovadoras para este problema.
+        </p>
         
         <h4>Fase Inicial do Projeto</h4>
         <p>
           Nesta fase inicial, nossa equipa já começou a mapear os requisitos do sistema, estudando tecnologias 
-          existentes e explorando o uso de IA para previsão de congestionamentos. Nos próximos passos, 
-          aprofundaremos no desenvolvimento do primeiro protótipo e na integração com possíveis parceiros, 
+          existentes e explorando o uso de IA para previsão de congestionamentos. Estamos analisando sistemas como:
+        </p>
+        <ul>
+          <li>Projeto Gertrudes (1985-2021) – Utilizado pela EMEL para gestão de tráfego em Lisboa</li>
+          <li>Projeto SIM.Lx (desde 2021) – Sistema atual da EMEL, mais moderno mas sem foco em veículos de emergência</li>
+          <li>Opticom – Solução internacional para prioridade a veículos de emergência</li>
+        </ul>
+        
+        <p>
+          Nos próximos passos, aprofundaremos no desenvolvimento do primeiro protótipo e na integração com possíveis parceiros, 
           como <strong>EMEL</strong> e <strong>INEM</strong>.
         </p>
         
+        <h4>A tecnologia por trás da solução</h4>
+        <p>
+          Nossa solução incorporará:
+        </p>
+        <ul>
+          <li>Semáforos inteligentes que reagem à proximidade das ambulâncias</li>
+          <li>Sistemas de comunicação GPS em tempo real</li>
+          <li>Algoritmos que garantem que semáforos abram automaticamente quando um veículo de emergência estiver dentro de uma certa distância</li>
+          <li>Sistemas de prevenção de congestionamento que fecham sinais contrários para garantir passagem segura</li>
+        </ul>
+        
         <h4>Próximos Passos</h4>
+        <p>
+          Seguindo nosso cronograma de desenvolvimento, os próximos passos incluem:
+        </p>
         <ul>
           <li>Pesquisa detalhada sobre sistemas existentes de controle de tráfego</li>
           <li>Desenvolvimento de algoritmos de priorização para veículos de emergência</li>
@@ -98,13 +177,8 @@
         
         <p>
           Acompanhe-nos para ver como este projeto evolui e, se tiver quaisquer dúvidas ou sugestões, 
-          não hesite em entrar em contacto através do nosso formulário no site!
-        </p>
-        
-        <p>
-          Este é apenas o começo de uma jornada para tornar nossas ruas mais seguras e eficientes para 
-          os veículos de emergência e, consequentemente, para todos os cidadãos que dependem desses 
-          serviços vitais.
+          não hesite em entrar em contacto através do nosso formulário no site! Este é apenas o começo 
+          de uma jornada para tornar nossas ruas mais seguras e eficientes para os veículos de emergência.
         </p>
       </div>
     </div>
@@ -113,7 +187,7 @@
   <!-- Footer -->
   <footer class="py-4 mt-5">
     <div class="container text-center">
-      <p><a href="index.html">Voltar à Página Principal</a></p>
+      <p><a href="blog.html">Voltar ao Blog</a> | <a href="index.html">Página Principal</a></p>
       <p>&copy; 2025 RescueFlow Team</p>
     </div>
   </footer>

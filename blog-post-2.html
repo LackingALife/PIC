@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog - O Impacto da Sincronização de Semáforos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <style>
     :root {
       --primary-color: #0B3C30; 
@@ -21,20 +22,86 @@
     footer a {
       color: #fff;
     }
+    
+    .blog-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .blog-content blockquote {
+      background-color: #f9f9f9;
+      border-left: 4px solid var(--primary-color);
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .blog-content h4 {
+      margin-top: 30px;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: #082720;
+      border-color: #082720;
+    }
+    
+    .list-group-item.active {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .text-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid var(--primary-color);
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .key-points {
+      background-color: rgba(11, 60, 48, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    
+    .key-points h5 {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
-  <!-- Navbar simples para voltar ao Index -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">RescueFlow</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#team">Equipa</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contactos</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <!-- Layout simplificado conforme a imagem -->
+  <!-- Layout do Conteúdo -->
   <div class="container mt-4">
     <div class="row">
       <!-- Coluna esquerda - Entradas do Blog -->
@@ -43,40 +110,47 @@
         <div class="list-group">
           <a href="blog-post-1.html" class="list-group-item list-group-item-action">Post #1 (12/01/2025)</a>
           <a href="blog-post-2.html" class="list-group-item list-group-item-action active">Post #2 (28/02/2025)</a>
-          <a href="blog-post-3.html" class="list-group-item list-group-item-action">Post #3 (15/03/2025)</a>
-          <a href="blog-post-4.html" class="list-group-item list-group-item-action">Post #4 (02/04/2025)</a>
-          <a href="blog-post-5.html" class="list-group-item list-group-item-action">Post #5 (15/04/2025)</a>
+          <a href="blog-post-3.html" class="list-group-item list-group-item-action">Post #3 (02/04/2025)</a>
+          <a href="blog-post-4.html" class="list-group-item list-group-item-action">Post #4 (15/04/2025)</a>
+        </div>
+        
+        <div class="mt-4">
+          <a href="blog.html" class="btn btn-primary w-100">
+            <i class="bi bi-arrow-left"></i> Voltar ao Blog
+          </a>
         </div>
       </div>
       
       <!-- Coluna direita - Conteúdo do Post -->
-      <div class="col-md-9">
+      <div class="col-md-9 blog-content">
         <h2>O Impacto da Sincronização de Semáforos</h2>
         <p>Data: 28 de Fevereiro 2025</p>
         <p class="text-muted">Por: Pedro Rodrigues e Joana Teixeira</p>
         
         <p>
-          Para entender melhor o impacto real que nosso sistema poderia ter, entrevistamos António Santos, 
+          À medida que nosso projeto avança, temos buscado compreender melhor os desafios reais enfrentados pelos veículos de emergência.
+          Para entender o impacto que nosso sistema poderia ter, entrevistamos António Santos, 
           ex-condutor de ambulâncias com 15 anos de experiência em serviços de emergência em Lisboa. 
-          A conversa revelou desafios críticos enfrentados pelos veículos de emergência no dia a dia e 
-          confirmou o potencial transformador do nosso projeto.
+          A conversa revelou desafios críticos enfrentados no dia a dia e confirmou o potencial transformador do nosso projeto.
         </p>
         
         <div class="text-center my-4">
-          <img src="images/emergency-vehicle.jpg" alt="Veículo de emergência" class="img-fluid rounded" style="max-width: 80%;">
+          <img src="images/ambulance.png" alt="Veículo de emergência" class="img-fluid rounded" style="max-width: 60%;">
         </div>
         
-        <h4>Os Principais Desafios no Trânsito</h4>
-        <p>
-          Os veículos de emergência enfrentam grandes dificuldades, especialmente em zonas de trânsito intenso e cruzamentos. 
-          Segundo o ex-condutor, os maiores obstáculos incluem:
-        </p>
-        <ul>
-          <li>Trânsito congestionado e condutores desatentos, que nem sempre cedem passagem rapidamente.</li>
-          <li>Densidade urbana, onde as ruas estreitas dificultam a circulação.</li>
-          <li>Falta de prioridade em cruzamentos, pois, mesmo com sirenes ligadas, outros condutores nem sempre reagem corretamente.</li>
-          <li>Dificuldade em prever a origem da ambulância, o que leva alguns condutores a fechar ainda mais a passagem, sem intenção.</li>
-        </ul>
+        <div class="key-points">
+          <h5><i class="bi bi-exclamation-triangle"></i> Desafios no Trânsito</h5>
+          <p>
+            Os veículos de emergência enfrentam grandes dificuldades, especialmente em zonas de trânsito intenso e cruzamentos. 
+            Segundo o ex-condutor, os maiores obstáculos incluem:
+          </p>
+          <ul>
+            <li><strong>Congestionamento:</strong> Trânsito denso e condutores desatentos, que nem sempre cedem passagem rapidamente.</li>
+            <li><strong>Densidade urbana:</strong> Ruas estreitas que dificultam a circulação, especialmente em centros históricos.</li>
+            <li><strong>Semáforos:</strong> Falta de prioridade em cruzamentos, pois, mesmo com sirenes ligadas, é necessário diminuir a velocidade.</li>
+            <li><strong>Imprevisibilidade:</strong> Dificuldade em prever a origem da ambulância, o que leva alguns condutores a fechar ainda mais a passagem, sem intenção.</li>
+          </ul>
+        </div>
         
         <div class="card mb-4 bg-light">
           <div class="card-body">
@@ -89,34 +163,65 @@
         
         <h4>Sincronização automática dos semáforos: uma solução eficaz?</h4>
         <p>
-          Acreditamos que a sincronização automática dos semáforos pode reduzir significativamente o tempo de resposta. 
-          O ex-condutor concorda que esta solução facilitaria a circulação das ambulâncias, especialmente em cruzamentos 
-          movimentados, evitando paragens desnecessárias e reduzindo o risco de acidentes.
+          Após analisar os problemas identificados, perguntamos a António se a sincronização automática dos semáforos poderia fazer diferença.
+          Sua resposta foi entusiástica: "Ajudaria bastante. Resolveria muitos desafios e reduziria o risco de acidentes."
         </p>
+        
+        <p>
+          António explicou que uma "onda verde" para ambulâncias facilitaria a circulação, especialmente em cruzamentos 
+          movimentados, evitando paragens desnecessárias e reduzindo significativamente o tempo de resposta - um fator crítico
+          em situações de vida ou morte.
+        </p>
+        
+        <div class="text-box">
+          <h5>Comparação com Sistemas Existentes</h5>
+          <p>A entrevista também nos permitiu comparar nossa proposta com soluções existentes:</p>
+          <ul>
+            <li><strong>Projeto Gertrudes (1985-2021):</strong> Apesar de sua longa história, não tinha capacidade de adaptação em tempo real para emergências.</li>
+            <li><strong>Projeto SIM.Lx (desde 2021):</strong> Mais moderno, mas ainda sem foco específico em veículos de emergência.</li>
+            <li><strong>Sistemas como Opticom:</strong> Soluções internacionais funcionais, mas que exigem equipamentos específicos e custosos.</li>
+          </ul>
+          <p>Nossa solução pretende ser mais acessível e integrada com a infraestrutura urbana existente.</p>
+        </div>
         
         <h4>Riscos e segurança</h4>
         <p>
-          Apesar dos benefícios, existem preocupações de segurança, como a possibilidade de confusão entre os outros condutores. 
-          O ex-condutor alerta que, se os sinais mudarem de forma inesperada, pode haver travagens bruscas e colisões.
+          Apesar dos benefícios evidentes, António alertou sobre preocupações de segurança. Se os sinais mudarem de forma inesperada,
+          pode haver travagens bruscas e colisões. É essencial que qualquer sistema tenha como prioridade não apenas a rapidez,
+          mas também a segurança de todos os utilizadores da via.
         </p>
+        
         <p>
-          Para minimizar riscos, sugerimos:
+          Para minimizar riscos, estamos desenvolvendo:
         </p>
         <ul>
-          <li>✅ Sistemas inteligentes de aviso, para que os condutores sejam alertados com antecedência.</li>
-          <li>✅ Testes e monitorização do sistema, garantindo que os semáforos sincronizados não criem novos problemas de trânsito.</li>
+          <li>✅ <strong>Sistemas inteligentes de aviso:</strong> Para que os condutores sejam alertados com antecedência sobre a aproximação de veículos de emergência.</li>
+          <li>✅ <strong>Transições suaves:</strong> Os semáforos devem mudar de forma previsível, dando tempo suficiente para os condutores reagirem.</li>
+          <li>✅ <strong>Monitorização constante:</strong> Garantindo que os semáforos sincronizados não criem novos problemas de trânsito.</li>
+        </ul>
+        
+        <h4>Próximos passos do projeto</h4>
+        <p>
+          Com base nas informações recolhidas nesta entrevista, estamos refinando nosso projeto para incluir:
+        </p>
+        <ul>
+          <li>Priorização de cruzamentos nas zonas mais críticas da cidade</li>
+          <li>Desenvolvimento de um sistema de alertas visuais complementares aos semáforos</li>
+          <li>Criação de um algoritmo que considera variáveis como hora do dia e densidade de tráfego</li>
+          <li>Testes iniciais em ambientes controlados antes da implementação em áreas urbanas reais</li>
         </ul>
         
         <h4>Conclusão</h4>
         <p>
           Melhorar o tempo de resposta das ambulâncias pode salvar vidas. A sincronização automática dos semáforos é uma 
-          solução promissora, mas deve ser implementada com segurança. Com o apoio de profissionais experientes e tecnologia 
-          adequada, podemos tornar o trânsito mais eficiente e seguro para todos.
+          solução promissora, mas deve ser implementada com segurança e considerando todos os utilizadores da via. Com o apoio 
+          de profissionais experientes como António Santos e tecnologia adequada, podemos tornar o trânsito mais 
+          eficiente e seguro para todos.
         </p>
         
         <p>
-          Acompanhe-nos para ver como este projeto evolui e, se tiver quaisquer dúvidas ou sugestões, não hesite em entrar 
-          em contacto através do nosso formulário no site!
+          No próximo post do blog, compartilharemos detalhes sobre o desenvolvimento técnico do nosso primeiro protótipo
+          e os resultados de testes iniciais. Acompanhe-nos para ver como este projeto evolui!
         </p>
       </div>
     </div>
@@ -125,7 +230,7 @@
   <!-- Footer -->
   <footer class="py-4 mt-5">
     <div class="container text-center">
-      <p><a href="index.html">Voltar à Página Principal</a></p>
+      <p><a href="blog.html">Voltar ao Blog</a> | <a href="index.html">Página Principal</a></p>
       <p>&copy; 2025 RescueFlow Team</p>
     </div>
   </footer>
